@@ -22,24 +22,31 @@ namespace CSharpPractice.function
             this.userChoices = userChoices;
         }
 
-        public string PlayRPC()
+        public List<string> PlayRPC()
         {
-            Random random = new Random();
-            int index = random.Next(possibleChoices.Length);
-            string randomSelection = possibleChoices[index];
-
-            List<string> winner;
+            List<string> winner = new List<string>();
 
             foreach (string choice in userChoices)
             {
                 getWinner(ref winner, choice);
             }
 
-            return "";
+            return winner;
         }
         private void getWinner(ref List<string> winner, string userChoice)
         {
+            Random random = new Random();
+            int index = random.Next(possibleChoices.Length);
+            string randomSelection = possibleChoices[index];
 
+            if (userChoice == randomSelection)
+            {
+                winner.Add("tie");
+            }
+            else
+            {
+                winner.Add(userChoice);
+            }
         }
 
     }

@@ -42,6 +42,13 @@ class Practice
         {
             Console.WriteLine(result);
         });
+    }
 
+    private static void PlayRPC()
+    {
+        List<RPSStruct> data = new List<RPSStruct>()
+        {
+
+        };
     }
 }
